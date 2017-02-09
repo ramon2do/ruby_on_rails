@@ -1,0 +1,93 @@
+<div class="login-box">
+  <% if flash[:danger] %>
+     <div class="alert alert-danger"><%= flash[:danger] %></div>
+  <% end %>
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#signin">Sign in</a></li>
+    <li><a data-toggle="tab" href="#signup">Sign up</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="signin" class="tab-pane fade in active">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Sign in</h4>
+        </div>
+        <div class="content">
+          <%= form_for "Signin", :url => { :action => :signin } do |f_signin| %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Email</label>
+                  <%= f_signin.email_field :email, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <%= f_signin.password_field :password, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <%= f_signin.submit "Go", :class => "btn btn-info btn-fill btn-wd" %>
+            </div>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div id="signup" class="tab-pane fade">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Sign up</h4>
+        </div>
+        <div class="content">
+          <%= form_for "Signup", :url => { :action => :signup } do |f_signup| %>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <%= f_signup.text_field :first_name, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <%= f_signup.text_field :last_name, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Email</label>
+                  <%= f_signup.email_field :email, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <%= f_signup.password_field :password, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <%= f_signup.submit "Register", :class => "btn btn-info btn-fill btn-wd" %>
+            </div>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

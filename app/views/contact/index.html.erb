@@ -1,0 +1,27 @@
+<div class="contact-box">
+	<div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Contact List</h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                    </thead>
+                        <tbody>
+                            <% @contacts.each do |contact| %>
+                                <tr>
+                                    <td><%= contact[1] + ' ' + contact[2] %></td>
+                                    <td><%= contact[3] %></td>
+                                    <td><%= contact[4] %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>                
