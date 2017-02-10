@@ -1,4 +1,6 @@
-<div class="login-box">
+<div class="container-fluid">
+  <div class="row">
+    <div class="login-box col-md-4 col-md-offset-4">  
   <% if flash[:danger] %>
      <div class="alert alert-danger"><%= flash[:danger] %></div>
   <% end %>
@@ -19,22 +21,26 @@
         </div>
         <div class="content">
           <%= form_for "Signin", :url => { :action => :signin } do |f_signin| %>
+          <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-sm-12 col-md-12">
                 <div class="form-group">
                   <label>Email</label>
                   <%= f_signin.email_field :email, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-sm-12 col-md-12">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
                   <%= f_signin.password_field :password, :required => "required", :autocomplete => "off", :class => "form-control border-input" %>
                 </div>
               </div>
             </div>
+          </div>
             <div class="text-center">
               <%= f_signin.submit "Go", :class => "btn btn-info btn-fill btn-wd" %>
             </div>
@@ -90,4 +96,6 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

@@ -1,4 +1,10 @@
 <div class="contact-box">
+    <% if flash[:danger] %>
+        <div class="alert alert-danger"><%= flash[:danger] %></div>
+    <% end %>
+    <% if flash[:success] %>
+        <div class="alert alert-success"><%= flash[:success] %></div>
+    <% end %>
 	<div class="col-md-12">
         <div class="card">
             <div class="header">
@@ -10,14 +16,30 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Telephone</th>
+                        <th>
+                            Actions 
+                            <a href="/contact" class="btn btn-info btn-fill btn-wd" style="float: right;">
+                                Create
+                            </a>
+                        </th>
                     </thead>
                         <tbody>
-                            <% @contacts.each do |contact| %>
-                                <tr>
-                                    <td><%= contact[1] + ' ' + contact[2] %></td>
-                                    <td><%= contact[3] %></td>
-                                    <td><%= contact[4] %></td>
-                                </tr>
+                            <% if @contacts != nil %>
+                                <% @contacts.each do |contact| %>
+                                    <tr>
+                                        <td><%= contact['first_name'] + ' ' + contact['last_name'] %></td>
+                                        <td><%= contact['email'] %></td>
+                                        <td><%= contact['telephone'] %></td>
+                                        <td>
+                                            <a href="/contact/<%= contact['id'] %>" class="btn btn-info btn-fill btn-wd">
+                                                Update
+                                            </a>
+                                            <a href="/delete/<%= contact['id'] %>" class="btn btn-info btn-fill btn-wd" data-method="post">
+                                                Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% end %>
                             <% end %>
                         </tbody>
                 </table>

@@ -41,3 +41,11 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+
+$(document).ready(function(){
+
+  if($('div.alert').length) {
+    setTimeout(function() {$('div.alert').hide("slow");}, 5000); 
+  }
+
+});

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'contact/index'
+  # get 'contact/index'
 
   # get 'site/index'
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root "site#login"
 
   # index path
-  get "index" => "site#index"
+  # get "index" => "contact#index"
   
   # login path
   get "login" => "site#login"
@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   # contact path
   get "contacts" => "contact#index"
-  get "contact" => "contact#new"
+  get "contact" => "contact#create"
+  get "contact/:id" => "contact#update"
+
   post "addcontact" => "contact#add"
+  post "updatecontact" => "contact#change"
+  post "delete/:id" => "contact#delete"
 
 end

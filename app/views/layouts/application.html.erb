@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <title><%= @_current_view %></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,19 +18,13 @@
               </div>
 
               <ul class="nav">
-                  <li class="active">
-                      <a href="/">
-                          <i class="ti-panel"></i>
-                          <p>Home</p>
-                      </a>
-                  </li>
-                  <li>
+                  <li class="<%= @_contacts_view_active %>">
                       <a href="/contacts">
                           <i class="ti-panel"></i>
                           <p>Contact List</p>
                       </a>
                   </li>
-                  <li>
+                  <li class="<%= @_contact_view_active %>">
                       <a href="/contact">
                           <i class="ti-panel"></i>
                           <p>New Contact</p>
@@ -51,7 +44,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Home</a>
+                    <a class="navbar-brand" href="/"><%= @_current_view %></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">

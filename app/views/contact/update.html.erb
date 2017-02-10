@@ -1,0 +1,53 @@
+<div class="contact-box">
+  <% if flash[:danger] %>
+     <div class="alert alert-danger"><%= flash[:danger] %></div>
+  <% end %>
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  
+  <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Update Contact</h4>
+            </div>
+            <div class="content">
+              <%= form_for "Contact", :url => { :action => :change } do |f_contact| %>
+              <%= f_contact.hidden_field :id, :value => @_contact['id'] %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <%= f_contact.text_field :first_name, :required => "required", :autocomplete => "off", :class => "form-control border-input", :value => @_contact['first_name'] %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <%= f_contact.text_field :last_name, :required => "required", :autocomplete => "off", :class => "form-control border-input", :value => @_contact['last_name'] %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <%= f_contact.email_field :email, :required => "required", :autocomplete => "off", :class => "form-control border-input", :value => @_contact['email'] %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Telephone</label>
+                      <%= f_contact.text_field :telephone, :required => "required", :autocomplete => "off", :class => "form-control border-input", :value => @_contact['telephone'] %>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <%= f_contact.submit "Update", :class => "btn btn-info btn-fill btn-wd" %>
+                </div>
+                <div class="clearfix"></div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div> 
